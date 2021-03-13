@@ -1,0 +1,16 @@
+galaxy_info:
+  author: Geidel Guerra
+  description: Installs Composer
+
+  license: MIT
+
+  min_ansible_version: 2.9
+
+  platforms:
+  - name: Ubuntu
+    versions:
+    - 20.04
+
+  galaxy_tags: [composer]
+
+dependencies: []

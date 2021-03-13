@@ -1,0 +1,14 @@
+---
+# tasks file for ansible-role-composer
+- name: Download Composer checksum
+  ansible.builtin.uri:
+    url: https://getcomposer.org/composer-stable.phar.sha256
+    return_content: Yes
+    force: Yes
+  register: composer_checksum_response
+
+- name: Download and install Composer binary
+  ansible.builtin.get_url:
+    url: 'https://getcomposer.org/composer-stable.phar'
+    checksum: "sha256:{{ composer_checksum_response.content }}"
+    dest: "{{ composer_install_path }}"
